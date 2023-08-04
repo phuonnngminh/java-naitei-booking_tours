@@ -11,11 +11,10 @@ import lombok.Setter;
 @Entity
 @Table(name = "date_tour")
 public class DateTour {
-//    @EmbeddedId
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+	
     @ManyToOne
     @MapsId("tourId")
     @JoinColumn(name = "tour_id")

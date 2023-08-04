@@ -28,13 +28,14 @@ public class Booking implements Serializable{
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
 
     @Column(name = "num_of_guests")
     private Integer numOfGuests;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "booking_status")
+    @Column(name = "status")
     private BookingStatus status;
 
     @ManyToOne

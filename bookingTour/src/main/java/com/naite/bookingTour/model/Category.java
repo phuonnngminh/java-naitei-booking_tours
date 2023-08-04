@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "bookings")
+@Table(name = "categories")
 public class Category implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

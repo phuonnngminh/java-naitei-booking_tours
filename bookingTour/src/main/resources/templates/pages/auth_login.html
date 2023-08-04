@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in - Voler Admin Dashboard</title>
+    <title>Log In | Tramin Traveling</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 
-    <link rel="shortcut icon" th:href="@{/images/favicon.svg}" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
     <link rel="stylesheet" th:href="@{/css/app.css}">
 </head>
 
@@ -20,8 +20,8 @@
                 <div class="card pt-4">
                     <div class="card-body">
                         <div class="text-center mb-5">
-                            <img th:src="@{/images/favicon.svg}" height="48" class='mb-4'>
-                            <h3>Sign In</h3>
+                            <img th:src="@{/images/logo1.jpg}" height="100" class='mb-4'>
+                            <h3>Log In</h3>
                             <p>Please sign in to continue to Tramin.</p>
                         </div>
                         <form th:action="@{/home}" method="post">
@@ -55,7 +55,7 @@
                                     <label for="checkbox1">Remember me</label>
                                 </div>
                                 <div class="float-end">
-                                    <a href="auth-register.html">Don't have an account?</a>
+                                    <a th:href="@{/register}">Don't have an account? <strong>Register.</strong></a>
                                 </div>
                             </div>
                             <div class="clearfix">
@@ -66,14 +66,18 @@
                             <div class="divider-text">OR</div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i>
                                     Facebook</button>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-4">
                                 <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i>
                                     Github</button>
                             </div>
+                            <div class="col-sm-4">
+									<button class="btn btn-block mb-2 btn-danger"><i data-feather="at-sign"></i>
+										Google</button>
+								</div>
                         </div>
                     </div>
                 </div>

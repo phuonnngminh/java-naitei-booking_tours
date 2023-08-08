@@ -12,13 +12,19 @@ import lombok.Setter;
 @Entity
 @Table(name = "categories")
 public class Category implements Serializable {
+	/**
+	 * 
+	 * @author PHUONG MINH
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
+	@Column(name = "name")
 	private String name;
-
-    public Category(){
+	
+	public Category(){
         super();
     }
 

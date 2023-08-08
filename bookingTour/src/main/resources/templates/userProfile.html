@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>userProfile</title>
+</head>
+
+<body>
+	<!-- head of page -->
+	<a href="#" name="head-of-page"></a>
+
+	<!-- navigation start -->
+	<header>
+		<div class="navigation">
+			<div class="row d-flex align-items-center" style="gap: 2rem;">
+				<div class="col-2">
+					<a href="./Pho_Store (2)/Pho_Store/demo.html">
+						<img src="/src/image/logo.jpg" alt="tramin-logo" class="navigation__logo"
+							style="padding-left: 50px;">
+					</a>
+				</div>
+				<div class="col-4">
+					<div class="search-group">
+						<span class="search-group__search-icon">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</span>
+						<input type="text" name="search-input" class="search-group__search-input">
+					</div>
+				</div>
+				<div class="col-2">
+					<nav class="navigation__nav-link-group d-flex justify-content-start align-items-center gap-3">
+						<li><a href="#" class="nav-link-group__link">browse</a></li>
+						<li><a href="#" class="nav-link-group__link">about</a></li>
+						<li><a href="#" class="nav-link-group__link">help</a></li>
+					</nav>
+				</div>
+				<div class="col d-flex align-items-center control-group">
+					<span class="user-profile-btn hide">
+						<i class="fa-solid fa-user"></i>
+						<ul class="user-profile-dropdown">
+							<li>
+								<i class="fa-solid fa-user-check"></i>
+								<a href="/pho-store-rebase/profile.html">Profile</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-gear"></i>
+								<a href="#">Setting</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-arrow-right-from-bracket"></i>
+								<a href="#">Log Out</a>
+							</li>
+						</ul>
+					</span>
+					<span class="show-items-btn">
+						<span class="show-items-btn__item-num">3</span>
+						<i class="fa-solid fa-cart-shopping"></i>
+					</span>
+
+					<span class="show-notification-btn">
+						<span class="show-notification-btn__dot"></span>
+						<i class="fa-solid fa-bell"></i>
+					</span>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- navigation end -->
+
+	<main class="container">
+		<p class="site-path">Home / Profile</p>
+		<div class="profile-header">
+			<img src="./images/fake-img/pexels-photo-1070360.jpeg" alt="" class="avt-user" id="avt1">
+			<span class="user-name">Nguyen Huy Hoang</span>
+		</div>
+		<h3>OVERVIEW</h3>
+		<div class="tabs-container">
+			<ul class="nav flex-column">
+				<li class="active"><a data-toggle="tab" href="#home">Personal Information ❯</a></li>
+				<li><a data-toggle="tab" href="#menu1">Address ❯</a></li>
+				<li><a data-toggle="tab" href="#menu2">Edit</a></li>
+				<li><a data-toggle="tab" href="#menu3">Log out</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<div class="profile-info">
+
+						<div class="info-group">
+							<p>Username</p>
+							<div contenteditable="true">Hoang10diem</div>
+						</div>
+
+						<div class="info-group">
+							<p>Email Address</p>
+							<div contenteditable="true">nh0992@gmail.com</div>
+						</div>
+
+						<div class="info-group">
+							<p>Password</p>
+							<div contenteditable="true">Reset password</div>
+						</div>
+
+						<div class="info-group">
+							<p>Phone number</p>
+							<div contenteditable="true">0986795343</div>
+						</div>
+
+						<div class="info-group">
+							<p>Shoe Size</p>
+							<div contenteditable="true">40.5-41(24.5)</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="menu1" class="tab-pane fade">
+					<div class="profile-info">
+
+						<div class="info-group">
+							<p>Address</p>
+							<div contenteditable="true">78 khu pho 6, phuong Linh Trung, TP Thu Duc, TPHCM</div>
+						</div>
+
+					</div>
+				</div>
+				<div id="menu2" class="tab-pane fade">
+
+				</div>
+				<div id="menu3" class="tab-pane fade">
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="vouchers">
+			<h3>YOUR VOUCHERS (1)</h3>
+			<img src="./images/image 17.png" alt="">
+		</div>
+
+		<!-- related products start -->
+		<div class="related-products">
+			<h3 class="related-products__title">RELATED PRODUCTS</h3>
+			<div class="related-products__list">
+				<div class="related-products__product">
+					<input type="checkbox" name="like-img-checkbox" id="">
+					<label for="like-img-checkbox"><i class="fa-regular fa-heart"></i></label>
+					<img style="margin-left:20px ;" src="./images/product01.png" alt="">
+				</div>
+				<div class="related-products__product">
+					<input type="checkbox" name="like-img-checkbox" id="">
+					<label for="like-img-checkbox"><i class="fa-regular fa-heart"></i></label>
+					<img style="margin-left:20px ;" src="./images/product02.png" alt="">
+				</div>
+				<div class="related-products__product">
+					<input type="checkbox" name="like-img-checkbox" id="">
+					<label for="like-img-checkbox"><i class="fa-regular fa-heart"></i></label>
+					<img style="margin-left:20px ;" src="./images/product03.png" alt="">
+				</div>
+				<div class="related-products__product">
+					<input type="checkbox" name="like-img-checkbox" id="">
+					<label for="like-img-checkbox"><i class="fa-regular fa-heart"></i></label>
+					<img style="margin-left:20px ;" src="./images/product04.png" alt="">
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- related products end -->
+	<!-- footer start -->
+	<div class="container-fluid">
+		<footer>
+			<div class="row" style="gap: 20px;">
+				<div class="col-2 d-flex align-items-center">
+					<img src="/pho-store-rebase/Pho_Store (2)/Pho_Store/images/footer-logo.png" alt="pho-store-logo"
+						class="footer__logo">
+				</div>
+				<div class="col-4 contact-info">
+					<p class="contact-info__title">Contact Information</p>
+					<ul class="contact-info__links">
+						<li>
+							<i class="fa-solid fa-mobile-screen"></i>
+							<a href="#">Phone: 0962790160</a>
+						</li>
+						<li>
+							<i class="fa-regular fa-envelope"></i>
+							<a href="#">Mail : Kenhcuapho@gmail.com</a>
+						</li>
+						<li>
+							<i class="fa-brands fa-square-facebook"></i>
+							<a href="#">Page : https://www.facebook.com/profile.php?id=100027716455801</a>
+						</li>
+						<li>
+							<i class="fa-regular fa-location-dot"></i>
+							<a href="#">Ho Chi Minh City</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-2 social-info">
+					<p class="social-info__title">Find Us on Social</p>
+					<ul class="social-info__links">
+						<li>
+							<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-instagram"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-youtube"></i></a>
+						</li>
+					</ul>
+					<div class="social-info__tags">
+						<span>#phostore</span>
+						<span>#hypenotbeast</span>
+					</div>
+				</div>
+				<div class="col download-info">
+					<p class="download-info__title">Download Our App</p>
+					<ul class="download-info__links">
+						<li>
+							<a href="#"><i class="fa-brands fa-apple"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa-brands fa-android"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<p class="footer__title-end">since 2021</p>
+		</footer>
+	</div>
+	<!-- footer end -->
+</body>
+
+</html>

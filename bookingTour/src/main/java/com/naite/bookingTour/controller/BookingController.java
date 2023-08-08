@@ -27,56 +27,56 @@ import com.naite.bookingTour.repository.TourRepository;
 @RequestMapping("/booking")
 public class BookingController {
 
-	@Autowired
-	private TourRepository tourRepo;
-
-	@Autowired
-	private ClientRepository clientRepo;
-
-	@Autowired
-	private BookingRepository bookingRepo;
-
-	@ModelAttribute("currentTour")
-	public Tour tour() {
-		return new Tour();
-	}
-
-	@GetMapping("/{id}") 
-	public String bookingForm(Model model, @PathVariable("id") Long id, @ModelAttribute("currentTour") Tour tour) {
-		Booking booking = new Booking();
-		Tour tour2 = tourRepo.findById(id).orElse(null);
-		if (tour2 != null) {
-			tour.setId(tour2.getId());
-			tour.setName(tour2.getName());
-			tour.setDescription(tour2.getDescription());
-			tour.setType(tour2.getType());
-			tour.setDescription(tour2.getDescription());
-			tour.setImage(tour2.getImage());
-		}
-		model.addAttribute("tour", tour2);
-		model.addAttribute("booking", booking);
-		return "bookingInfo";
-	}
-
-
-	public void setTourRepo(TourRepository tourRepo) {
-		this.tourRepo = tourRepo;
-	}
-
-	public BookingRepository getBookingRepo() {
-		return bookingRepo;
-	}
-
-	public void setBookingRepo(BookingRepository bookingRepo) {
-		this.bookingRepo = bookingRepo;
-	}
-
-	public ClientRepository getClientRepo() {
-		return clientRepo;
-	}
-
-	public void setClientRepo(ClientRepository clientRepo) {
-		this.clientRepo = clientRepo;
-	}
+//	@Autowired
+//	private TourRepository tourRepo;
+//
+//	@Autowired
+//	private ClientRepository clientRepo;
+//
+//	@Autowired
+//	private BookingRepository bookingRepo;
+//
+//	@ModelAttribute("currentTour")
+//	public Tour tour() {
+//		return new Tour();
+//	}
+//
+//	@GetMapping("/{id}") 
+//	public String bookingForm(Model model, @PathVariable("id") Long id, @ModelAttribute("currentTour") Tour tour) {
+//		Booking booking = new Booking();
+//		Tour tour2 = tourRepo.findById(id).orElse(null);
+//		if (tour2 != null) {
+//			tour.setId(tour2.getId());
+//			tour.setName(tour2.getName());
+//			tour.setDescription(tour2.getDescription());
+//			tour.setType(tour2.getType());
+//			tour.setDescription(tour2.getDescription());
+//			tour.setImage(tour2.getImage());
+//		}
+//		model.addAttribute("tour", tour2);
+//		model.addAttribute("booking", booking);
+//		return "bookingInfo";
+//	}
+//
+//
+//	public void setTourRepo(TourRepository tourRepo) {
+//		this.tourRepo = tourRepo;
+//	}
+//
+//	public BookingRepository getBookingRepo() {
+//		return bookingRepo;
+//	}
+//
+//	public void setBookingRepo(BookingRepository bookingRepo) {
+//		this.bookingRepo = bookingRepo;
+//	}
+//
+//	public ClientRepository getClientRepo() {
+//		return clientRepo;
+//	}
+//
+//	public void setClientRepo(ClientRepository clientRepo) {
+//		this.clientRepo = clientRepo;
+//	}
 
 }

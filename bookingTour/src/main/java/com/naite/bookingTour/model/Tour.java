@@ -47,7 +47,7 @@ public class Tour implements Serializable {
     @JoinColumn(name = "category_id")
     private Category categoryId;
     
-    public Tour() {
+    public Tour(long l, String string, String string2) {
     	super();
 	}
 
@@ -65,6 +65,11 @@ public class Tour implements Serializable {
 	public Object getId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public static void add(Tour tour) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap cdn start -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- boostrap cdn end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- boostrap cdn end -->
+  <!-- font-awesome cdn start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font-awesome end -->
+  <!-- font-awesome cdn start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font-awesome end -->
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/base.css}">
+  <title>HOME</title>
+</head>
+<body>
+  <header>
+    <div class="navigation">
+      <div class="row d-flex align-items-center" style="gap: 2rem;">
+        <div class="col-2" >
+          <a href="/pho-store-rebase/Pho_Store (2)/Pho_Store/demo.html">
+            <img src="/src/main/resources/static/image/logo.jpg" alt="tramin-logo" class="navigation__logo" style="padding-left: 50px;">
+          </a>
+        </div>
+        <div class="col-4">
+          <div class="search-group">
+            <span class="search-group__search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input type="text" name="search-input" class="search-group__search-input">
+            </div>
+        </div>
+        <div class="col-2">
+          <nav class="navigation__nav-link-group d-flex justify-content-start align-items-center gap-3">
+            <li><a href="#" class="nav-link-group__link">browse</a></li>
+            <li><a href="#" class="nav-link-group__link">about</a></li>
+            <li><a href="#" class="nav-link-group__link">help</a></li>
+          </nav>
+        </div>
+        <div class="col d-flex align-items-center control-group">
+          <span class="user-profile-btn hide">
+            <i class="fa-solid fa-user"></i>
+            <ul class="user-profile-dropdown">
+              <li>
+                <i class="fa-solid fa-user-check"></i>
+                <a href="userProfile.html">Profile</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-gear"></i>
+                <a href="#">Setting</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <a href="#">Log Out</a>
+              </li>
+            </ul>
+          </span>
+          <span class="show-items-btn">
+            <span class="show-items-btn__item-num">3</span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </span>
+          <a href="login.html" class="btn login-btn">login</a>
+          <a href="userRegister.html" class="btn sign-up-btn">sign up</a>
+          <span class="show-notification-btn">
+            <span class="show-notification-btn__dot"></span>
+            <i class="fa-solid fa-bell"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      
+      <img src="./images/image-1.png"style="width:100%">
+      
+    </div>
+
+    <div class="mySlides fade">
+      
+      <img src="./images/streetwear-la-gi.png" style="width:100%">
+      
+    </div>
+
+    <div class="mySlides fade">
+     
+      <img src="./images/running-vs-training-1-1200x628.png" style="width:100%">
+    
+    </div>
+
+    </div>
+
+       <br>
+    <div style="text-align:center">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+    </div>
+    <br>
+    <div class="slideshow-container">
+      <div class="mySlides3 fade">
+        <img src="images/Group 1.png"  style="width:80%">
+      </div>
+      <div class="mySlides3 fade">
+        <img src="images/Group 6.png"  style="width:80%">
+      </div>
+    </div>
+    <script>
+    let index2=0;
+    showslide3();
+    function showslide3(){
+      let slides3 = document.getElementsByClassName("mySlides3");
+      for (i = 0; i < slides3.length; i++) {
+        slides3[i].style.display = "none";  
+      }
+      index2++;
+      if (index2 > slides3.length) {index2 = 1} 
+      slides3[index2-1].style.display = "block";
+      setTimeout(showslide3, 3000); 
+    }
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 2000); 
+    }
+    </script>
+      <div class="product-type">
+        <hr class="hr">
+            <a href="/pho-store-rebase/Pho_Store (2)/Sneaker-page/sneaker.html" class="type">Sneakers</a>
+        <hr class="hr">
+      </div>
+    <div class="product-box">
+      <div class="product">
+          <div class="product-img-block"><img class="product-img" src="images/adidas-Yeezy-Boost-350-V2-Light-Release-Date 1.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+          <a href="/pho-store-rebase/product-detail.html" class="product-name">AIR JORDAN 1 OFF WHITE CHICAGO</a>
+          <p class="price">$4,500</p>
+          </div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img class="product-img" src="images/15651284_28537785_1000 1.png" alt="">
+          <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">JORDAN 1 RETRO LOW <br> DIOR</a>
+              <p class="price">$5,500</p>
+          </div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img class="product-img" src="images/13855948_17385980_1000 1.png" alt="">
+          <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">NIKE AIR YEEZY 2 <BR>Red October</BR></a>
+              <p class="price">$9,999</p>
+              </div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img class="product-img" src="images/11710839_8035620_1000 1.png" alt="">
+          <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">YEEZY BOOST 350 V2 <BR>Beluga 2.0</BR></a>
+              <p class="price">$499</p>
+              </div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img class="product-img" src="images/12431289_23446496_1000 1.png" alt="">
+          <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">YEEZY BOOST 350 V2 <br>Zebra</a>
+              <p class="price">$399</p>
+              </div>
+      </div>
+    </div>
+    <div class="product-type">
+      <hr class="hr">
+          <a href="/pho-store-rebase/Pho_Store (2)/Apprel/apparel.html" class="type">Apparel</a>
+      <hr class="hr">
+    </div>
+    <div class="product-box">
+      <div class="product2">
+          <div class="product-img-block" style="height: 230px;">
+              <img class="product-img" src="images/16000206_30338993_1000 2.png" alt="">
+              <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+            
+              <div class="product-infor">
+                  <a href="/pho-store-rebase/product-detail.html" class="product-name">A BATHING APE <br> Micro ape patch sweatshirt</a>
+                  <p class="price-1">$1,425</p>
+              </div>
+          
+      </div>
+      <div class="product2">
+          <div class="product-img-block" style="height: 230px;">
+              <img class="product-img" src="images/17757845_37966486_1000 2.png" alt="">
+              <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Supreme <br> Box Logo hoodie</a>
+              <p class="price-1">$918</p>
+          </div>
+      </div>
+      <div class="product2">
+          <div class="product-img-block" style="height: 230px;">
+              <img class="product-img--2" src="images/16192902_31536134_1000 2.png" alt="">
+              <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+            
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Supreme x The North Face <br> S logo fleece jacket</a>
+              <p class="price-1">$899</p>
+          </div>
+        
+      </div>
+      <div class="product2">
+          <div class="product-img-block" style="height: 230px;">
+              <img class="product-img" src="images/18237287_39023648_1000 2.png" alt="">
+              <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Supreme x The North Face <br> Expedition Coaches jacket</a>
+              <p class="price-1">$5,734</p>
+          </div>
+      </div>
+      <div class="product2">
+          <div class="product-img-block" style="height: 230px;">
+              <img class="product-img--2" src="images/16239157_31535671_1000 2.png" alt="">
+              <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+          </div>
+            <br>
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Supreme <br> Big Logo hoodie</a>
+              <p class="price-1">$999</p>
+          </div>
+     
+      </div>
+    </div>
+ 
+    <div class="product-type">
+      <hr class="hr">
+          <a href="#" class="type">Accessories</a>
+      <hr class="hr">
+    </div>
+    <div class="product-box">
+      <div class="product">
+          <div class="product-img-block"><img src="images/sung.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+            
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Supreme <br> Money Gun</a>
+              <p class="price-1">$500</p>
+          </div></div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img src="images/Gucci-Nhan-Đốt-SNKRVn 1.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+            
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">GUCCI <br> Esotericum bamboo incense sticks</a>
+              <p class="price-1">$75</p>
+          </div></div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img src="images/nuoc-hoa-chanel-no5-l-eau-eau-de-toilette-100ml 1.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+            
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">CHANEL<br> N°5 L’EAU</a>
+              <p class="price-1">$180</p>
+          </div></div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img src="images/supreme-rolex-submariner-watch-02 1.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+            
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">ROLEX x Supreme <br> FUCK EM - SUBMARINER</a>
+              <p class="price-1">$5,500</p>
+          </div></div>
+      </div>
+      <div class="product">
+          <div class="product-img-block"><img src="images/grillz.png" alt="">
+            <div class="middle">
+              <div class="hover-text">Details</div>
+            </div>
+    
+          <div class="product-infor">
+              <a href="/pho-store-rebase/product-detail.html" class="product-name">Jonny Dang <br> Diamond Grills</a>
+              <p class="price-1">$5,500</p>
+          </div></div>
+      </div>
+    </div>
+    <div class="product-type">
+      <hr class="hr">
+          <p class="type">New Item</p>
+      <hr class="hr">
+    </div>
+   
+      <div class="product-control__product-carousel carousel">
+        <div class="carousel__img-feature">
+          <div class="carousel__img-list">
+
+              <img src="images/images24.png" style="width:33%"  class="carousel__img" id="lastClone">
+              <img src="images/images06.png" style="width:33%"class="carousel__img">
+              <img src="images/images27.png" style="width:33%"class="carousel__img">
+              <img src="images/images23.png" style="width:33%"class="carousel__img">
+              <img src="images/images03.png" style="width:33%"class="carousel__img">
+              <img src="images/sung.png" style="width:33%"class="carousel__img">
+              <img src="images/grillz.png" style="width:33%"class="carousel__img">
+              <img src="images/images05.png" style="width:33%"class="carousel__img">
+              <img src="images/images13.png" style="width:33%"class="carousel__img" id="firstClone">
+          </div>
+
+        
+        </div>
+        <div class="carousel__img-order">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+
+        </div>
+        <button class="btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="btn-next"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+  
+      <script>
+        let Index = 1;
+        showSlides2(Index);
+        
+        function plusSlides(n) {
+          showSlides2(Index += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides2(Index = n);
+        }
+        
+        function showSlides2(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides1");
+          let dots = document.getElementsByClassName("dot2");
+          if (n > slides.length) {Index = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[Index-1].style.display = "block";  
+          dots[Index-1].className += " active";
+        }
+        </script>
+      <br>
+    <div class="container-fluid">
+      <footer>
+        <div class="row" style="gap: 20px;">
+          <div class="col-2 d-flex align-items-center">
+            <img src="/pho-store-rebase/Pho_Store (2)/Pho_Store/images/footer-logo.png" alt="pho-store-logo" class="footer__logo">
+          </div>
+          <div class="col-4 contact-info">
+            <p class="contact-info__title">Contact Information</p>
+            <ul class="contact-info__links">
+              <li>
+                <i class="fa-solid fa-mobile-screen"></i>
+                <a href="#">Phone: 0962790160</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a href="#">Mail    : Kenhcuapho@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-square-facebook"></i>
+                <a href="#">Page  : https://www.facebook.com/profile.php?id=100027716455801</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-location-dot"></i>
+                <a href="#">Ho Chi Minh City</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-2 social-info">
+            <p class="social-info__title">Find Us on Social</p>
+            <ul class="social-info__links">
+              <li>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              </li>
+            </ul>
+            <div class="social-info__tags">
+              <span>#phostore</span>
+              <span>#hypenotbeast</span>
+            </div>
+          </div>
+          <div class="col download-info">
+            <p class="download-info__title">Download Our App</p>
+            <ul class="download-info__links">
+              <li>
+                <a href="#"><i class="fa-brands fa-apple"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-brands fa-android"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer__title-end">since 2021</p>
+      </footer>
+    </div>
+    <!-- footer end -->
+    <script src="/pho-store-rebase/js/utilities.js"></script>
+    <script src="/pho-store-rebase/js/profile.js"></script>
+    <script src="/pho-store-rebase/js/productDetail.js"></script>
+</body>
+</html> 

@@ -3,8 +3,6 @@ package com.naite.bookingTour.model;
 
 import java.io.Serializable;
 
-import com.naite.bookingTour.model.Booking.BookingStatus;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,50 +12,60 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public class User implements Serializable{
-    @Id
+    /**
+	 * 
+	 * @author PHUONG MINH
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(unique = true)
+    @Column(name = "username")
     private String username;
     
+    @Column(name = "password")
     private String password;
     
-    @Column(unique = true)
+    @Column(name = "email")
     private String email;
     
     @Column(name = "fullname")
-    private String fullName;
+    private String fullname;
     
-    @Column(unique = true)
+    @Column(name = "phone")
     private String phone;
     
+    @Column(name = "address")
     private String address;
     
-    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private int role;
     
-    public enum Role {
-    	ADMIN,
-    	USER
-    }
-
-	public User() {
-		super();
+    public User() {
+    	super();
 	}
 
-	public User(Long id, String username, String password, String email, String fullName, String phone, String address,
-			Role role) {
-		super();
-		this.id = id;
+	public User(Long id, String username, String password, String email, String fullname, String phone, String address, Integer role)
+ {
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.fullName = fullName;
+		this.fullname = fullname;
 		this.phone = phone;
 		this.address = address;
 		this.role = role;
 	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+	
+	
 
 }

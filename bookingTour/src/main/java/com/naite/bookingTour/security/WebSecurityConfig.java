@@ -1,11 +1,9 @@
 package com.naite.bookingTour.security;
 
-
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,10 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
-@AllArgsConstructor
 @EnableWebSecurity
 public class WebSecurityConfig {
 
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Bean
@@ -28,38 +26,34 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf((csrf) -> csrf.disable())
+        http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
-                        authorize
-                                .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
-//                                .requestMatchers("/cart/**").hasAnyAuthority("USER")
+                        authorize.requestMatchers("/home").permitAll()
+                                .requestMatchers("/register/**").permitAll()
+                                .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().permitAll()
-                ).formLogin(
+                )
+                .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .successHandler((request, response, authentication) -> {
-                                    if (authentication.getAuthorities().stream()
-                                            .anyMatch(auth -> auth.getAuthority().equals("ADMIN"))) {
-                                        response.sendRedirect("/admin");
-                                    } else {
-                                        response.sendRedirect("/");
-                                    }
-                                })
+                                .defaultSuccessUrl("/home")
                                 .permitAll()
-                ).logout(
+                )
+                .logout(
                         logout -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                                 .permitAll()
-                ).exceptionHandling(
-                        exception -> exception
-                                .accessDeniedPage("/access-denied")
                 );
         return http.build();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-        return configuration.getAuthenticationManager();
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder());
     }
+
+
 }

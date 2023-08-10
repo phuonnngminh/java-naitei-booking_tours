@@ -5,12 +5,14 @@ import java.util.Optional;
 
 import com.naite.bookingTour.model.User;  
 
-public interface UserService {  
+public interface UserManagementService {  
   List<User> getAllUser();  
 
   void saveUser(User user);  
 
   void deleteUser(Long id);  
 
-  Optional<User> findUserById(Long id);  
+  User findUserById(Long id);  
+  
+  User findByEmail(String email);
 }

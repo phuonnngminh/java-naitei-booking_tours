@@ -6,6 +6,8 @@ import java.io.Serializable;
 import com.naite.bookingTour.model.Booking.BookingStatus;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,14 +20,19 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotBlank
     @Column(unique = true)
     private String username;
     
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
     
+    @NotBlank
     @Column(unique = true)
     private String email;
     
+    @NotBlank
     @Column(name = "fullname")
     private String fullName;
     

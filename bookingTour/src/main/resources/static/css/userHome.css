@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 .search-sec{padding:2rem}
 .search-slt{display:block;width:100%;font-size:.875rem;line-height:1.5;color:#55595c;background-color:#fff;background-image:none;border:1px solid #ccc;height:calc(3rem + 2px)!important;border-radius:0}
 .wrn-btn{width:100%;font-size:16px;font-weight:400;text-transform:capitalize;height:calc(3rem + 2px)!important;border-radius:0 4px 4px 0;}
@@ -154,3 +153,8 @@ body.side-menu-visible #side-menu{transform:translateX(-300px);overflow:hidden;}
 #side-menu .contact a, #side-menu .contact .fa{padding:5px 0px;background:#fff;font-size:14px;color:#727272;}
 #side-menu .contact a:hover, #side-menu .contact .fa:hover{color: #28ab13 !important;}
 #side-menu .contact a:focus, #side-menu .contact .fa:focus{color: #28ab13 !important;}
+.logo{
+	width: 30px;
+	height:30px;
+	margin-left:20px;
+}

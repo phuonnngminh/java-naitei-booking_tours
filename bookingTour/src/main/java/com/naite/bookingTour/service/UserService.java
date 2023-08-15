@@ -1,26 +1,24 @@
 package com.naite.bookingTour.service;
 
-import java.util.List;  
+import java.util.List;
 import java.util.Optional;
 
-import com.naite.bookingTour.model.User;  
+import com.naite.bookingTour.model.User;
 
-public interface UserService {  
-  List<User> getAllUser();  
+public interface UserService {
+	List<User> getAllUser();
 
-  void saveUser(User user);  
-  
-  void deleteUser(String username);
+	void saveUser(User user) ;
 
-  Optional<User> findUserById(String username);
+	void deleteUser(String username);
 
-Object findAll();
+	Optional<User> findUserById(String username);
 
-void deleteUser(Long id);
+	List<User> findAll();
 
-Optional<User> findUserById(Long id);
+	void deleteUser(Long id);
 
+	Optional<User> findUserById(Long id);
 
-
-
+	User getUserByUsername(String username);
 }

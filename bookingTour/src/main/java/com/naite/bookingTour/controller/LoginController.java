@@ -44,30 +44,24 @@ public class LoginController {
 
 		// Perform authentication logic here (e.g., check username and password against
 		// the database)
-		boolean isAuthenticated = authenticate(username, password);
+		User user = authenticate(username, password);
 
-		if (isAuthenticated) {
+		if (user != null) {
 			// Create a session and store user information
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
-
-			return "redirect:/dashboard"; // Redirect to the dashboard page
+			if (user.isAdmin()) {
+				// Redirect to admin page 
+				return "redirect:/admin";
+			}
+			else {
+				// Redirect to the dashboard page
+				return "redirect:/"; 
+			}
 		} else {
 			redirectAttributes.addFlashAttribute("error", "Invalid username or password");
 			return "redirect:/login";
 		}
-	}
-
-	@GetMapping("/dashboard")
-	public String showDashboard(HttpServletRequest request) {
-		// Check if the user is authenticated (session has the username attribute)
-		HttpSession session = request.getSession();
-		if (session.getAttribute("username") == null) {
-			return "redirect:/login"; // Redirect to the login page if not authenticated
-		}
-
-		// User is authenticated, show the dashboard
-		return "userHome";
 	}
 
 	@GetMapping("/logout")
@@ -79,13 +73,13 @@ public class LoginController {
 		return "redirect:/login"; // Redirect to the login page after logout
 	}
 
-	private boolean authenticate(String username, String password) {
+	private User authenticate(String username, String password) {
 	  Optional<User> user = userRepository.authenticate(username,password);
 	  if (user.isPresent()) {
-		  return true;
+		  return user.get();
 	  }
 	  else {
-		  return false;
+		  return null;
 	  }
   }
 }

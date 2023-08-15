@@ -62,16 +62,5 @@ public class Tour implements Serializable {
 		this.categoryId = categoryId;
 	}
 
-	public Object getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static void add(Tour tour) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 
 }

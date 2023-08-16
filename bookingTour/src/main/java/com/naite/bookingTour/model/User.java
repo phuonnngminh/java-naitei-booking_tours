@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "users")
+
 public class User implements Serializable {
 	/**
 	 * 
@@ -38,24 +40,37 @@ public class User implements Serializable {
 	@Column(name = "address")
 	private String address;
 
-	@Column(name = "role")
-	private String role;
+	@Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+    
+    public enum Role {
+    	ADMIN,
+    	USER
+    }
+
 
 	public User() {
 		super();
 	}
 
-	public User(Long id, String username, String password, String email, String fullname, String phone, String address,
-			String role, String repeatPassword) {
+	
+
+	public User(Long id, String username, String password, String repeatPassword, String email, String fullname,
+			String phone, String address, Role role) {
+		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.repeatPassword = repeatPassword;
 		this.email = email;
 		this.fullname = fullname;
 		this.phone = phone;
 		this.address = address;
 		this.role = role;
-		this.repeatPassword = repeatPassword;
 	}
+
+
 
 	public String getFullname() {
 		return fullname;
@@ -113,8 +128,20 @@ public class User implements Serializable {
 		this.address = address;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+
+
 	public boolean isAdmin() {
-		if (role.equalsIgnoreCase("ADMIN")) {
+		if (role.equals("ADMIN")) {
 			return true;
 		} else {
 			return false;

@@ -1,5 +1,6 @@
 package com.naite.bookingTour.config;
 
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ import com.naite.bookingTour.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,9 +28,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
+       Optional<User> userOptional = userRepository.findByEmail(email);
 
-        if (user != null) {
+        if (userOptional.isPresent()) {
+        	User user = userOptional.get();
             return new org.springframework.security.core.userdetails.User(user.getEmail(),
                     user.getPassword(),
                     mapRolesToAuthorities(Collections.singleton(user.getRole())));

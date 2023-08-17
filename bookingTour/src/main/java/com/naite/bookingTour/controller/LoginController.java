@@ -20,12 +20,7 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController {
 	@Autowired
 	private UserRepository userRepository;
-    
-    @GetMapping("/register")
-    public String register() {
-    	return "userRegister";
-    }
-    
+
     @GetMapping("/login")
 	public String showLoginPage(Model model) {
 		// Check if the model contains any flash attributes with the "error" key

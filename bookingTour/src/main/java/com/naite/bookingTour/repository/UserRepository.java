@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
         
         return Optional.empty(); // Authentication failed
     }
-    
-    User findUserById(Long id);
+
+    Optional<User> findUserById(Long id);
 
 }

@@ -24,15 +24,18 @@ public class HomeController {
 		// Check if the user is authenticated (session has the username attribute)
 		HttpSession session = request.getSession();
 		if (session.getAttribute("username") == null) {
-			return "userHome"; // Redirect to the login page if not authenticated
+			return "home"; // Redirect to the login page if not authenticated
 		}
-		
-		Optional<User> userOptional = userRepository.findByUsername((String)session.getAttribute("username")); // Retrieve the user's full name from the service or repository
+
+		Optional<User> userOptional = userRepository.findByUsername((String) session.getAttribute("username")); // Retrieve the user's full name from the service or repository
 		User user = userOptional.get();
 		model.addAttribute("fullname", user.getFullname());
 
-		// User is authenticated, show the dashboard
-		return "userHome";
+		boolean isAdmin = user.getRole() == User.Role.ADMIN;
+		model.addAttribute("isAdmin", isAdmin);
+
+		return isAdmin ? "admin/landing_page" : "home";
 	}
+
 
 }
